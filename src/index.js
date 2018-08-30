@@ -19,7 +19,7 @@ class Main extends React.Component {
 
     this.state = {
       generation: 0,
-      gridFull: Array(this.rows).fill().map() => Array(this.cols).fill(false))
+      gridFull: Array(this.rows).fill().map(() => Array(this.cols).fill(false))
     }
   }
   render() {
@@ -27,8 +27,8 @@ class Main extends React.Component {
       <div>
         <h1>The Game of Life</h1>
         <Grid
-          grifFull={this.state.gridFull},
-          rows-{this.rows},
+          grifFull={this.state.gridFull}
+          rows={this.rows}
           cols={this.cols}
         />
         <h2>Generations: { this.state.generation }</h2>
