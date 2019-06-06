@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "js-yaml": ">=3.13.1",
+    "handlebars": "^4.0.14",
+    "js-yaml": "^3.13.1",
     "react": "^16.8.6",
     "react-bootstrap": "^0.32.4",
     "react-dom": "^16.8.6",
