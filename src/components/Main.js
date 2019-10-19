@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+//import PropTypes from 'prop-types';
 import '../index.css';
 import { ButtonToolbar, MenuItem, DropdownButton } from 'react-bootstrap';
 import Box from './Box.js'
@@ -144,10 +145,26 @@ class Main extends React.Component {
     );
   }
 }
-
+/*
+Main.propTypes = {
+  generation: PropTypes.number,
+  gridFull: PropTypes.array,
+  playButton: PropTypes.func,
+  pauseButton: PropTypes.func,
+  slow: PropTypes.func,
+  fast: PropTypes.func,
+  clear: PropTypes.func,
+  seed: PropTypes.func,
+  gridSize: PropTypes.func,
+  rows: PropTypes.func,
+  cols: PropTypes.func,
+  selectBox: PropTypes.func,
+}
+*/
 function arrayClone(arr) {
   return JSON.parse(JSON.stringify(arr));
 }
 
-ReactDOM.render(<Main />, document.getElementById('root'));
+export default Main
+
 
