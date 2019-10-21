@@ -1,36 +1,41 @@
-import React from 'React';
-import Box from './Box.js'
+import React, { Component } from "react";
+import Box from "./Box";
 
-class Grid extends React.Component {
-  render() {
-    const width = (this.props.cols * 14);
-    var rowsArr = [];
+const Grid = props => {
+  // takes in the dimensions of the status of the boxes
+  // and builds the grid based
+  const width = props.cols * 16;
+  let rowsArr = []; // to hold our jsx
+  // let boxClass = ''; // a temp for each box's css
 
-    var boxClass = "";
-    for (var i = 0; i < this.props.rows; i++) {
-      for (var j = 0; j < this.props.cols; j++) {
-        let boxId = i + "_" + j;
-
-        boxClass = this.props.gridFull[i][j] ? "box on" : "box off";
-        rowsArr.push(
-          <Box
-            boxClass={boxClass}
-            key={boxId}
-            boxId={boxId}
-            row={i}
-            col={j}
-            selectBox={this.props.selectBox}
-          />
-        );
-      }
+  // go through each number of rows and add fill with each number
+  // of cols to make each box
+  for (var row_index = 0; row_index < props.rows; row_index++) {
+    for (var col_index = 0; col_index < props.cols; col_index++) {
+      let boxId = `${row_index}-${col_index}`;
+      console.log('row', row_index);
+      // test the bool of each box and put the corresponding class
+      let boxClass = props.gridFull[row_index][col_index]
+        ? "box on"
+        : "box off"; // spaces between classes for multiples
+      rowsArr.push(
+        <Box
+          boxClass={boxClass}
+          key={boxId}
+          boxId={boxId}
+          row={row_index}
+          col={col_index}
+          onBoxSelect={props.onBoxSelect}
+        />
+      );
     }
-
-    return (
-      <div className="grid" style={{ width: width }}>
-        {rowsArr}
-      </div>
-    );
   }
-}
 
-export default React;
+  return (
+    <div className="grid" style={{ width: width }}>
+      {rowsArr}
+    </div>
+  );
+};
+
+export default Grid;
