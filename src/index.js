@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import '../index.css';
+import './index.css';
 import { ButtonToolbar, MenuItem, DropdownButton } from 'react-bootstrap';
-import Main from './components/Main.js'
+import App from './components/App'
 
 
-ReactDOM.render(<Main />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
 

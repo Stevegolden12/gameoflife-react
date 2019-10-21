@@ -1,45 +1,24 @@
-class Buttons extends React.Component {
+import React, { Component } from "react";
+import Adjustments from "./Adjustments";
 
-  handleSelect = (evt) => {
-    this.props.gridSize(evt);
-  }
-
-  render() {
-    return (
-      <div className="center">
-        <ButtonToolbar>
-          <button className="btn btn-default" onClick={this.props.playButton}>
-            Play
-					</button>
-          <button className="btn btn-default" onClick={this.props.pauseButton}>
-            Pause
-					</button>
-          <button className="btn btn-default" onClick={this.props.clear}>
-            Clear
-					</button>
-          <button className="btn btn-default" onClick={this.props.slow}>
-            Slow
-					</button>
-          <button className="btn btn-default" onClick={this.props.fast}>
-            Fast
-					</button>
-          <button className="btn btn-default" onClick={this.props.seed}>
-            Seed
-					</button>
-
-          <DropdownButton
-            title="Grid Size"
-            id="size-menu"
-            onSelect={this.handleSelect}
-          >
-            <MenuItem eventKey="1">20x10</MenuItem>
-            <MenuItem eventKey="2">50x30</MenuItem>
-            <MenuItem eventKey="3">70x50</MenuItem>
-          </DropdownButton>
-        </ButtonToolbar>
+const Buttons = props => {
+  return (
+    <div>
+      <div>
+        <button onClick={() => props.onPrevClick(props.generation)}>Previous Generation</button>
+        <button onClick={props.onPlayClick}>Play</button>
+        <button onClick={props.onPauseClick}>Pause</button>
+        <button onClick={() => props.onNextClick()}>Next Generation</button>
       </div>
-    );
-  }
-}
+      <br />
+      <Adjustments speed={props.speed} cols={props.cols} rows={props.rows} onSizeSpeedEdit={props.onSizeSpeedEdit} />
+      <br />
+      <div>
+        <button onClick={() => props.onClearBoardClick()}>Clear Board</button>
+        <button onClick={() => props.onRandomBoardClick()}>Random Board</button>
+      </div>
+    </div>
+  );
+};
 
 export default Buttons;

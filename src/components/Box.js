@@ -1,20 +1,13 @@
-import React from 'react'
+import React, { Component } from "react";
 
-class Box extends React.Component {
+const Box = props => {
+  return (
+    <div
+      className={props.boxClass}
+      id={props.id}
+      onClick={() => props.onBoxSelect(props.row, props.col)}
+    />
+  );
+};
 
-  selectBox = () => {
-    this.props.selectBox(this.props.row, this.props.col);
-  }
-
-  render() {
-    return (
-      <div
-        className={this.props.boxClass}
-        id={this.props.id}
-        onClick={this.selectBox}
-      />
-    );
-  }
-}
-
-export default Box; 
+export default Box;
